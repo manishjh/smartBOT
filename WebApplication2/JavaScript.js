@@ -12,14 +12,15 @@ function abc() {
     var listItemQuestion = document.createElement('li');
     listItemQuestion.textContent = inputstr.value;
     list.appendChild(listItemQuestion);
+    inputstr.value = "";
+    var listItemAnswer = document.createElement('li');
     http.onreadystatechange = function () {
         if (http.readyState === XMLHttpRequest.DONE && http.status === 200){
-            var listItemAnswer = document.createElement('li');
             listItemAnswer.textContent = http.response;
             list.appendChild(listItemAnswer);
+           
         }
         else if (http.readyState === XMLHttpRequest.UNSENT && http.status !== 200) {
-            var listItemAnswer = document.createElement('li');
             listItemAnswer.textContent = "Sorry try again";
             list.appendChild(listItemAnswer);
         }
