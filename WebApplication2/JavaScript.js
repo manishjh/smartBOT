@@ -6,8 +6,9 @@ submitbtn.addEventListener('click', abc);
 
 function abc() {
     var http = new XMLHttpRequest();
-    var url = 'http://localhost:57929/api/smartbot/GetStringfromBot?inputstring=' + inputstr.value;
-    var method = 'POST';
+    var url = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/1eb87c6b-34ec-4634-8ebd-1f9025d341f4?subscription-key=fa7de06304bc4f258dd87d323d6963f0&verbose=true&timezoneOffset=0&q='
+        + inputstr.value;
+    var method = 'GET';
     http.open(method, url);
     var listItemQuestion = document.createElement('li');
     listItemQuestion.textContent = inputstr.value;
@@ -26,9 +27,6 @@ function abc() {
         }
         //this is working code
     }
-   
-       
-
     console.log(http);
     http.send();
 }
